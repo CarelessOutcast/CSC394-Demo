@@ -27,7 +27,7 @@ class task_model(models.Model):
     time_remaining  = models.CharField(max_length=25)
     
     def __str__(self):
-	    return self.title
+	    return self.name
     
     
 

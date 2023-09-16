@@ -74,6 +74,7 @@ h1 {
 	flex-direction: column; /* Arrange children in a column */
 	align-items: center; /* Center horizontally */
 	text-align: center; /* Center text horizontally */
+	width: 80%;
 }
 
 .head {
@@ -177,3 +178,107 @@ footer {
 	footer a:hover {
 		color: #A52A2A;
 		transition: color 1s ease-out}
+
+/* Base table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Table headers */
+th {
+    background-color: #f2f2f2;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+/* Table cells */
+td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+}
+
+/* Zebra striping for alternate rows */
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+/* Hover effect for table rows */
+tr:hover {
+    background-color: #eaeaea;
+}
+
+/* Remove text decoration for hyperlinks inside the table */
+table a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+/* Change hyperlink hover color */
+table a:hover {
+    text-decoration: underline;
+}
+
+.feature-description {
+    margin: 0; /* Removes default margin */
+    color: #666;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.feature {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    min-width: calc(33.333% - 20px);  /* To make sure at least three features fit in a row */
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #007BFF;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.feature-title {
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.feature-description {
+    margin: 0;
+    color: #666;
+}
+
+
+
+
+
+
+
