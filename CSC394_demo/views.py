@@ -1,12 +1,12 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from .models import task_model, user_model
-
+import uuid
 import random
-import datetime
+from datetime import datetime
 
 # Create your views here.
 
@@ -21,17 +21,41 @@ def taskmanager(request):
 
 #insert
 def add_task(request):
-    task_title = request.POST['task_title']
-    task_model.objects.create(task_title=task_title)
-    return 
+    add_task_object = request.POST
+    user_first_name = add_task_object['first_name']
+    user_last_name  = add_task_object['last_name']
+    deadline        = add_task_object['deadline']
+    task_model.objects.create(
+        user_id         = add_task_object['user_id'],
+        task_id         = uuid.uuid4(),
+        name            = add_task_object['name'],
+        description     = add_task_object['description'],
+        created_by      = user_first_name + '' + user_last_name,
+        updated_by      = user_first_name + '' + user_last_name,
+        deadline        = deadline,
+        time_remaining  = str(round(((deadline - datetime.now()).total_seconds())/3600), 2) + ' Hours'
+    )
+    return redirect('taskmanager')
     
 #update
-def update_task(request):
-    pass
-
+def update_task(request, task_id):
+    task = get_object_or_404(task_model, pk=task_id)
+    update_task_object = request.POST
+    task_model.objects.filter(task_id).update(
+        status          = update_task_object['status'],
+        name            = update_task_object['name'],
+        description     = update_task_object['description'],
+        updated_by      = update_task_object['updated_by'],
+        deadline        = update_task_object['deadline'],
+        time_remaining  = update_task_object['time_remaining']
+    )
+    return redirect('taskmanager')
+    
 #delete
-def delete_task(request, person, habit_id):
-    pass
+def delete_task(request, task_id):
+    task = get_object_or_404(task_model, pk=task_id)
+    task.delete()
+    return redirect('taskmanager')
 
 
 
