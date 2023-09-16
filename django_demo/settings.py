@@ -31,8 +31,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['red-lobster.dev','*']
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
