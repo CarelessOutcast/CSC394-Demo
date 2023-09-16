@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrabbyTasks</title>
+    <title>CrabbyTasks Login</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="redstyles.css">
 </head>
 <body>
+    
     <header>
         <nav>
             <ul>
@@ -20,13 +21,26 @@
             </ul>
         </nav>
     </header>
-
+    <div id="wrapper">
     <main>
-        <button class="large-button">Begin</button>
-    </main>
+        <div class="container">
+            <h1>Login</h1><br>
+            <form name="Login" method="POST" action="redlobsterTM.html">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required><br>
+            
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password" required><br>
 
+                <input type="submit" value="Login">
+                <input type="button" value="Create Account" onclick="window.location.href='redlobsterTM.html'">
+            </form>
+        </div>
+    </main>
+    </div>
     <footer>
-        <p>&copy; 2023 Your Website Name</p>
+        &copy; The Red Lobsters <br>
+            Questions? Comments? Send them to <a href=mailto:emmanunnink@gmail.com>emmanunnink@gmail.com</a><br>
     </footer>
 </body>
 </html>

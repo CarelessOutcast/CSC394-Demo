@@ -28,6 +28,8 @@ nav {
 	font-weight: bold; 
 	font-size: 120%; 
 	background-color: #FF6969;
+	display: block;
+
 	}
 	nav a {
 		text-decoration: none;
@@ -42,7 +44,7 @@ nav {
 		color: #A52A2A;
 		transition: color 1s ease-out}*/
 	nav ul {
-		margin: 0px;
+		margin: auto;
 		list-style-type: none;
 		text-align: left;
 		font-size: 1.5em;
@@ -60,6 +62,13 @@ main {
 	border-color: #141E46;
 	color: #141E46 }
 
+h1 {
+	color: #141E46; 
+	font-weight: bolder;
+	font-size: 6vh;
+	padding: 10px 20px;
+	text-align: center;}
+	
 .container {
 	display: flex;
 	flex-direction: column; /* Arrange children in a column */
@@ -75,12 +84,13 @@ main {
 .logo {
     width: 80px;
     height: auto;
-    margin-top: 10px;
+    margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 .large-button {
     padding: 50px 60px; /* Adjust padding to make it large */
-    font-size: 60px; /* Adjust font size for large text */
+    font-size: 3vh; /* Adjust font size for large text */
     background-color: #BB2525; /* Button background color */
     color: #FFF5E0; /* Text color */
     border: none; /* Remove button border */
@@ -88,7 +98,9 @@ main {
     cursor: pointer; /* Add pointer cursor on hover */ }
 
 #wrapper {
-	background-color:#FFF5E0;
+	/*background-color:#FFF5E0;*/
+	background-image: url("logo.png");
+	background-repeat: no repeat;
 	margin: 0 auto; 
 	width: 100%;
 	min-width: 940px;
@@ -97,9 +109,10 @@ main {
 	border-color:#141E46;
 	border-width: 5px; }
 
+
 #welcome {
 	padding: 20px 30px;
-	font-size: 90px;
+	font-size: 8vh;
 	background-color: #FF6969;
 	border:none;
 	border-radius: 8px;
@@ -107,6 +120,47 @@ main {
 	margin-left: 5%;
 	margin-right: 5%;
 }
+
+form {
+	border: 5px solid #141E46;
+	border-radius: 8px;
+	background-color: #FF6969;
+	font-family: 'Times New Roman', 'Helvetica', 'sans-serif';
+	font-size: 3vh;
+	font-weight:bold;
+	color:#FFF5E0;
+	width: fit-content;
+	padding: 20px 60px;
+	display: block;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+input[type="text"],
+input[type="password"] {
+	width: 100%; /* Make the text boxes expand to full width */
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+input[type="submit"],
+        input[type="button"] {
+            background-color:#141E46;
+            color: #FFF5E0;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
 
 footer {
 	background-color: #FF6969; 
