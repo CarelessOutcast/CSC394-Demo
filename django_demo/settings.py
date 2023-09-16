@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import json
+import json,os
 
 with open('/etc/config.json') as config_file:
     config = json.load(config_file)
@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['red-lobster.dev','*']
 
@@ -57,10 +57,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'django_demo.urls'
 
+TEMPLATES_DIR = os.path.join(BASE_DIR,'CSC394_demo','templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
