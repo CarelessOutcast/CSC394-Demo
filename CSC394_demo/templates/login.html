@@ -1,26 +1,6 @@
-<!DOCTYPE html><!-- Red Lobster Team 9/14/2023 -->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrabbyTasks Login</title>
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="stylesheet" href="redstyles.css">
-</head>
-<body>
-    
-    <header>
-        <nav>
-            <ul>
-                <img src="logo.png" alt="Lobster Logo" class="logo">
-                <li class="head"><a href="#">CrabbyTasks</a></li>
-                <li><a href="redlobsterHome.html">Home</a></li>
-                <li><a href="redlobsterTM.html">Task Manager</a></li>
-                <li><a href="redlobsterContact.html">Contact Us</a></li>
-                <li><a href="redlobsterLogin.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+{% extends 'layout.html'%}
+{% load static %}
+{% block content%}
     <div id="wrapper">
     <main>
         <div class="container">
@@ -38,9 +18,4 @@
         </div>
     </main>
     </div>
-    <footer>
-        &copy; The Red Lobsters <br>
-            Questions? Comments? Send them to <a href=mailto:emmanunnink@gmail.com>emmanunnink@gmail.com</a><br>
-    </footer>
-</body>
-</html>
+{% endblock %}
