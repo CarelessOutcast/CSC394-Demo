@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrabbyTasks</title>
     {% load static %}
-    <link rel="icon" type="image/png" href="{% static 'CSC394_demo/logo.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'logo.png' %}">
     <link rel="stylesheet" href="{% static 'redstyles.css' %}">
 </head>
 <body>
@@ -23,18 +23,22 @@
         </nav>
     </header>
 
-    <div id="wrapper">
-    <main>
-        <div class="container">
-            <p id="welcome">Welcome to CrabbyTasks, your new best friend! <br>Are you ready to fulfill your dreams... and get things done?</p>
-            <button class="large-button">Task Manager</button>
-        </div>
-    </main>
 
-    </div>
+    {% block content %}
+    {% endblock %}
+
     <footer>
         &copy; The Red Lobsters <br>
             Questions? Comments? Send them to <a href=mailto:emmanunnink@gmail.com>emmanunnink@gmail.com</a><br>
     </footer>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
