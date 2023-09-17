@@ -16,7 +16,7 @@ class user_model(models.Model):
 
 #creates table in database for tasks and their information
 class task_model(models.Model):
-    user_id         = models.UUIDField(foreign_key=True)
+    # user_id         = models.ForeignKey(user_model, on_delete=models.CASCADE)
     task_id         = models.UUIDField(default=uuid.uuid4(), editable=False)
     status          = models.CharField(max_length=25, default="To Do")
     name            = models.CharField(max_length=25)
