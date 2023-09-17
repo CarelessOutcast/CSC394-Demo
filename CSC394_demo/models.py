@@ -18,15 +18,15 @@ class user_model(models.Model):
 class task_model(models.Model):
     # user_id         = models.ForeignKey(user_model, on_delete=models.CASCADE)
     task_id         = models.UUIDField(default=uuid.uuid4(), editable=False)
-    status          = models.CharField(max_length=25, default="To Do")
+    # status          = models.CharField(max_length=25, default="To Do")
     name            = models.CharField(max_length=25)
     description     = models.TextField()
-    created_by      = models.CharField(max_length=100)
+    #created_by      = models.CharField(max_length=100)
     created_at      = models.DateTimeField('Created', auto_now_add=True)
-    updated_by      = models.CharField(max_length=100)
+    #updated_by      = models.CharField(max_length=100)
     updated_at      = models.DateTimeField('Updated', auto_now=True)
     deadline        = models.DateTimeField()
-    time_remaining  = models.CharField(max_length=25)
+    #time_remaining  = models.CharField(max_length=25)
     
     def __str__(self):
 	    return self.name

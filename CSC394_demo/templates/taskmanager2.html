@@ -8,20 +8,14 @@
    <p class="hero-description"> Organize and manage all your tasks efficiently.  </p>
    <section class="features">
 	   <div class="feature"> 
-		   <i class="feature-icon"> Icon 1 </i> 
-		   <h2 class="feature-title"> Feature 1 </h2>
+		   <i class="feature-icon"> 1 </i> 
+		   <h2 class="feature-title"> Finish the project demo </h2>
 		   <p class="feature-description"> 
 		   </p>
 	   </div>
 	   <div class="feature"> 
-		   <i class="feature-icon"> Icon 2</i> 
-		   <h2 class="feature-title"> Feature 2</h2>
-		   <p class="feature-description"> 
-		   </p>
-	   </div>
-	   <div class="feature"> 
-		   <i class="feature-icon"> Icon 2</i> 
-		   <h2 class="feature-title"> 9 </h2>
+		   <i class="feature-icon"> 2</i> 
+		   <h2 class="feature-title"> Talk to emma</h2>
 		   <p class="feature-description"> 
 		   </p>
 	   </div>
@@ -39,19 +33,22 @@
 		   <thead>
 			   <tr>
 				   <th>Time</th>
+				   <th>Task Number</th>
 				   <th>Task Info</th>
 			   </tr>
 		   </thead>
 		   <tbody id="tasks-table">
+			<tr>
+				<td>8:00am</td>
+				<td>2</td>
+				<td> Talk to emma
+					<a href="{% url 'taskmanager1' %}" class="btn">Delete</a>
+				</td>
+			</tr>
 			   <tr>
 				   <td>12:00pm</td>
-				   <td>1.Finish the project demo
-					   <a href="{% url 'taskmanager1' %}" class="btn">Delete</a>
-				   </td>
-			   </tr>
-			   <tr>
-				   <td>8:00am</td>
-				   <td> 2.Talk to emma
+				   <td>1</td>
+				   <td>Finish the project demo
 					   <a href="{% url 'taskmanager1' %}" class="btn">Delete</a>
 				   </td>
 			   </tr>
