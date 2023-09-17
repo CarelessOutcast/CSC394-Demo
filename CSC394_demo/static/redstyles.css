@@ -1,9 +1,31 @@
 /* Emma Nunnink 9/14/2023 */
-* {box-sizing: border-box;}
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin:0;
+}
+
+#decor {
+	text-decoration:none;
+	color: white;
+
+}
+
+a:hover {
+	text-decoration:none;
+}
 
 body {
 	background-color: white; 
-	font-family: 'Times New Roman', 'Helvetica', 'sans-serif';}
+	font-family: 'Times New Roman', 'Helvetica', 'sans-serif';
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.content-wrapper-layout {
+	flex:1;
+}
 
 /*header {
 	background-color: #FFFFFF; 
@@ -118,8 +140,7 @@ h1 {
 	border:none;
 	border-radius: 8px;
 	font-weight:bolder;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin: 5% 5% 5% 5%;
 }
 
 form {
@@ -301,7 +322,6 @@ table a:hover {
     background-color: #004499;
     transform: translateY(2px);  /* Small move down to simulate button press */
 }
-
 
 
 .side-panel {

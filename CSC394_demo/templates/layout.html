@@ -13,7 +13,7 @@
     <header>
         <nav>
             <ul>
-                <img src="logo.png" alt="Lobster Logo" class="logo">
+		    <img src="{% static 'logo.png'%}" alt="Lobster Logo" class="logo">
                 <li class="head"><a href="#">CrabbyTasks</a></li>
 		<li><a href="{% url 'home' %}">Home</a></li>
 		<li><a href="{% url 'taskmanager' %}">Task Manager</a></li>
@@ -23,9 +23,12 @@
         </nav>
     </header>
 
+	<div class="content-wrapper-layout">
 
     {% block content %}
     {% endblock %}
+
+	</div>
 
     <footer>
         &copy; The Red Lobsters <br>
