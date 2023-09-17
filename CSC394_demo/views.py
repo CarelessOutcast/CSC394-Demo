@@ -17,15 +17,70 @@ def contact(request):
     return render(request,'contact.html')
 
 def taskmanager(request):
-    if request.method == 'GET':
-        form = task_form()
-        context = {'form':form}
-        return render(request, 'taskmanager.html',context)
-    else:
-        form = task_form(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect('taskmanager')
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager.html',context)
+
+def taskmanager1(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager1.html',context)
+
+def taskmanager2(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager2.html',context)
+
+def taskmanager3(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager3.html',context)
+
+def taskmanager4(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager4.html',context)
+
+def taskmanager5(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager5.html',context)
+
+def taskmanager6(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager6.html',context)
+
+def taskmanager7(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager7.html',context)
+
+def taskmanager8(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager8.html',context)
+
+def taskmanager9(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager9.html',context)
+
+def taskmanager10(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager10.html',context)
+
+def taskmanager11(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager11.html',context)
+
+def taskmanager12(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager12.html',context)
+
 
 
 #insert
@@ -39,7 +94,7 @@ def update_task(request):
     pass
 
 #delete
-def delete_task(request, person, habit_id):
+def delete_task(request, person, task_id):
     pass
 
 
@@ -87,7 +142,7 @@ def main_app(request):
 
         return render(request, "main_app.html", {
             "column_keys": column_keys,
-            "user_habits": user_habits,
+            "user_task": user_habits,
             "message": message
         })
     else:
