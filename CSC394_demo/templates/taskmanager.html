@@ -1,9 +1,119 @@
 {% extends 'layout.html' %}
 {% load static %}
+
 {% block content %}
-    <div id="wrapper">
-    <main>
-        
-    </main>
-    </div>
+
+<div class="container">
+<h1>Habit Tracker Dashboard</h1>
+   <p class="hero-description"> Organize and manage all your tasks efficiently.  </p>
+   <section class="features">
+	   <div class="feature"> 
+		   <i class="feature-icon"> Icon 1 </i> 
+		   <h2 class="feature-title"> Feature 1 </h2>
+		   <p class="feature-description"> 
+		   </p>
+	   </div>
+	   <div class="feature"> 
+		   <i class="feature-icon"> Icon 2</i> 
+		   <h2 class="feature-title"> Feature 2</h2>
+		   <p class="feature-description"> 
+		   </p>
+	   </div>
+	   <div class="feature"> 
+		   <i class="feature-icon"> Icon 2</i> 
+		   <h2 class="feature-title"> 9 </h2>
+		   <p class="feature-description"> 
+		   </p>
+	   </div>
+   </section>
+   <form action="" method="post" autocomplete="off">
+	   {% csrf_token %}
+	{{form}}
+	 <button id="add-row">Add Habit</button>
+   </form>
+
+   <div class="container">
+	   <h1>Sunday</h1>
+	   <table>
+		   <thead>
+			   <tr>
+				   <th>Time</th>
+				   <th>Task Info</th>
+			   </tr>
+		   </thead>
+		   <tbody id="tasks-table">
+			   
+		   </tbody>
+	   </table>
+   </div>
+
+
+  <section class="table-section">
+   <table> <thead>
+     <tr> 
+	     <th> </th> 
+	     <th> Sun </th> 
+	     <th> Mon </th> 
+	     <th> Tue </th> 
+	     <th> Wed </th> 
+	     <th> Thu </th> 
+	     <th> Fri </th>
+	     <th> Sat </th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr> 
+	     <td> 8:00AM </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td>
+     </tr> 
+     <tr> 
+	     <td> 10:00AM </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+     </tr> 
+     <tr> 
+	     <td> 12:00PM </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+     </tr> 
+     <tr> 
+	     <td> 2:00PM </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+     </tr> 
+     <tr> 
+	     <td> 4:00PM </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+	     <td> </td> 
+     </tr>
+    </tbody>
+   </table>
+  </section>
+</div>
 {% endblock %}
