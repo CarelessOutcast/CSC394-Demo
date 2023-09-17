@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-*@k(puq4szl262=*)0^*td-z4v^bpyx4(m1-2lm+6!m++34@n!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['red-lobster.dev','*']
+ALLOWED_HOSTS = ['red-lobster.dev','*', '127.0.0.1:8000']
 
 # Application definition
 
