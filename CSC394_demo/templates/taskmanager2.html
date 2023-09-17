@@ -26,14 +26,13 @@
 		   </p>
 	   </div>
    </section>
-
    <div class="side-panel">
-   <form action="{% url 'taskmanager1' %}" method="get" autocomplete="off">
+   <form action="{% url 'taskmanager3' %}" method="get" autocomplete="off">
 	   {% csrf_token %}
 	{{form}}
 	 <button id="add-row">Add Task</button>
    </form>
-   <div class="container">
+	<div class="container">
    <div class="container">
 	   <h1>Sunday</h1>
 	   <table>
@@ -44,7 +43,18 @@
 			   </tr>
 		   </thead>
 		   <tbody id="tasks-table">
-			   
+			   <tr>
+				   <td>12:00pm</td>
+				   <td>1.Finish the project demo
+					   <a href="{% url 'taskmanager1' %}" class="btn">Delete</a>
+				   </td>
+			   </tr>
+			   <tr>
+				   <td>8:00am</td>
+				   <td> 2.Talk to emma
+					   <a href="{% url 'taskmanager1' %}" class="btn">Delete</a>
+				   </td>
+			   </tr>
 		   </tbody>
 	   </table>
    </div>
@@ -66,7 +76,7 @@
     <tbody>
      <tr> 
 	     <td> 8:00AM </td> 
-	     <td> </td> 
+	     <td> 2 </td> 
 	     <td> </td> 
 	     <td> </td> 
 	     <td> </td> 
@@ -86,7 +96,7 @@
      </tr> 
      <tr> 
 	     <td> 12:00PM </td> 
-	     <td> </td> 
+	     <td> 1 </td> 
 	     <td> </td> 
 	     <td> </td> 
 	     <td> </td> 
@@ -117,7 +127,6 @@
     </tbody>
    </table>
   </section>
-
    </div>
    </div>
 </div>

@@ -1,6 +1,7 @@
+import uuid
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from .models import task_model, user_model
@@ -17,31 +18,106 @@ def contact(request):
     return render(request,'contact.html')
 
 def taskmanager(request):
-    if request.method == 'GET':
-        form = task_form()
-        context = {'form':form}
-        return render(request, 'taskmanager.html',context)
-    else:
-        form = task_form(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect('taskmanager')
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager.html',context)
 
+def taskmanager1(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager1.html',context)
 
-#insert
+def taskmanager2(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager2.html',context)
+
+def taskmanager3(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager3.html',context)
+
+def taskmanager4(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager4.html',context)
+
+def taskmanager5(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager5.html',context)
+
+def taskmanager6(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager6.html',context)
+
+def taskmanager7(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager7.html',context)
+
+def taskmanager8(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager8.html',context)
+
+def taskmanager9(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager9.html',context)
+
+def taskmanager10(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager10.html',context)
+
+def taskmanager11(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager11.html',context)
+
+def taskmanager12(request):
+    form = task_form() 
+    context = {'form':form} 
+    return render(request, 'taskmanager12.html',context)
+
 def add_task(request):
-    task_title = request.POST['task_title']
-    task_model.objects.create(task_title=task_title)
-    return 
+    add_task_object = request.POST
+    user_first_name = add_task_object['first_name']
+    user_last_name  = add_task_object['last_name']
+    deadline        = add_task_object['deadline']
+    task_model.objects.create(
+        user_id         = add_task_object['user_id'],
+        task_id         = uuid.uuid4(),
+        name            = add_task_object['name'],
+        description     = add_task_object['description'],
+        created_by      = user_first_name + '' + user_last_name,
+        updated_by      = user_first_name + '' + user_last_name,
+        deadline        = deadline,
+        time_remaining  = str(round(((deadline - datetime.now()).total_seconds())/3600), 2) + ' Hours'
+    )
+    return redirect('taskmanager')
     
 #update
-def update_task(request):
-    pass
-
+def update_task(request, task_id):
+    task = get_object_or_404(task_model, pk=task_id)
+    update_task_object = request.POST
+    task_model.objects.filter(task_id).update(
+        status          = update_task_object['status'],
+        name            = update_task_object['name'],
+        description     = update_task_object['description'],
+        updated_by      = update_task_object['updated_by'],
+        deadline        = update_task_object['deadline'],
+        time_remaining  = update_task_object['time_remaining']
+    )
+    return redirect('taskmanager')
+    
 #delete
-def delete_task(request, person, habit_id):
-    pass
-
+def delete_task(request, task_id):
+    task = get_object_or_404(task_model, pk=task_id)
+    task.delete()
+    return redirect('taskmanager')
 
 
 def login_view(request):
@@ -87,7 +163,7 @@ def main_app(request):
 
         return render(request, "main_app.html", {
             "column_keys": column_keys,
-            "user_habits": user_habits,
+            "user_task": user_habits,
             "message": message
         })
     else:

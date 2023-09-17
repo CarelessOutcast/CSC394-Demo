@@ -277,8 +277,34 @@ table a:hover {
 }
 
 
+.anchor-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.anchor-button:hover {
+    background-color: #0056b3;
+}
+
+/* Active (click) effect */
+.anchor-button:active {
+    background-color: #004499;
+    transform: translateY(2px);  /* Small move down to simulate button press */
+}
 
 
 
-
+.side-panel {
+	display: flex;
+}
 
