@@ -5,7 +5,7 @@
     <main>
         <div class="container">
             <h1>Login</h1><br>
-            <form name="Login" method="POST" action="taskmanager.html">
+	    <form name="Login" method="get" action="{% url 'taskmanager' %}">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username" required><br>
             
