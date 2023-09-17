@@ -5,11 +5,12 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from .models import task_model, user_model
 import uuid
+from .forms import task_form
+
 import random
 from datetime import datetime
 
 # Create your views here.
-
 def index(request):
     return render(request,'home.html')
 
@@ -17,7 +18,16 @@ def contact(request):
     return render(request,'contact.html')
 
 def taskmanager(request):
-    return render(request,'taskmanager.html')
+    if request.method == 'GET':
+        form = task_form()
+        context = {'form':form}
+        return render(request, 'taskmanager.html',context)
+    else:
+        form = task_form(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('taskmanager')
+
 
 #insert
 def add_task(request):
