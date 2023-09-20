@@ -10,9 +10,9 @@
    </section>
 
    <div class="side-panel">
-   <form action="{% url 'taskmanager1' %}" method="get" autocomplete="off">
+	<form action="{% url 'taskmanager' %}" method="get" autocomplete="off">
 	   {% csrf_token %}
-	{{form}}
+	{{input_form}}
 	 <button id="add-row">Add Task</button>
    </form>
    <div class="container">
@@ -27,7 +27,15 @@
 			   </tr>
 		   </thead>
 		   <tbody id="tasks-table">
-			   
+			   {% for tasks in task_list %}
+			   <tr>
+				<td>{{ tasks.deadline }}</td>
+				<td> {{tasks.task_id }}</td>
+				<td> {{tasks.task}}
+					<a href="{% url 'taskmanager' %}" class="btn">Delete</a>
+				</td>
+			</tr>
+				{% endfor %}
 		   </tbody>
 	   </table>
    </div>

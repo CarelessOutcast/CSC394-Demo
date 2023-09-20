@@ -18,9 +18,10 @@ def contact(request):
     return render(request,'contact.html')
 
 def taskmanager(request):
-    form = task_form() 
-    context = {'form':form} 
-    return render(request, 'taskmanager.html',context)
+    form = task_form()
+    tasks = task_model.objects.all() 
+    context = {'task_list':tasks, 'input_form':form} 
+    return render(request, 'taskmanager.html', context)
 
 def taskmanager1(request):
     form = task_form() 
