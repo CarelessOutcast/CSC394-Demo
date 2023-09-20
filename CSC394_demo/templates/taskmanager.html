@@ -10,7 +10,7 @@
    </section>
 
    <div class="side-panel">
-	<form action="{% url 'taskmanager' %}" method="get" autocomplete="off">
+	<form action="add" method="post">
 	   {% csrf_token %}
 	{{input_form}}
 	 <button id="add-row">Add Task</button>

@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from .models import task_model, user_model
 from .forms import task_form
+from django.views.decorators.http import require_http_methods
 
 import random
 import datetime
@@ -83,21 +84,26 @@ def taskmanager12(request):
     context = {'form':form} 
     return render(request, 'taskmanager12.html',context)
 
+@require_http_methods(["POST"])
 def add_task(request):
-    add_task_object = request.POST
-    user_first_name = add_task_object['first_name']
-    user_last_name  = add_task_object['last_name']
-    deadline        = add_task_object['deadline']
-    task_model.objects.create(
-        user_id         = add_task_object['user_id'],
-        task_id         = uuid.uuid4(),
-        name            = add_task_object['name'],
-        description     = add_task_object['description'],
-        created_by      = user_first_name + '' + user_last_name,
-        updated_by      = user_first_name + '' + user_last_name,
-        deadline        = deadline,
-        time_remaining  = str(round(((deadline - datetime.now()).total_seconds())/3600), 2) + ' Hours'
-    )
+   # task = request.POST["task"]
+    #user_first_name = add_task_object['first_name']
+   # user_last_name  = add_task_object['last_name']
+   # deadline        = add_task_object['deadline']
+    #task_model.objects.create(
+      #  user_id         = add_task_object['user_id'],
+      #  task_id         = uuid.uuid4(),
+       # name            = add_task_object['name'],
+      #  description     = add_task_object['description'],
+       # created_by      = user_first_name + '' + user_last_name,
+       # updated_by      = user_first_name + '' + user_last_name,
+       # deadline        = deadline,
+        #time_remaining  = str(round(((deadline - datetime.now()).total_seconds())/3600), 2) + ' Hours'
+   # )
+    task = request.POST["task"]
+    deadline        = request.POST['deadline']
+    taskToStore = task_model(task = task, deadline = deadline, task_id = uuid.uuid4())
+    taskToStore.save()
     return redirect('taskmanager')
     
 #update
