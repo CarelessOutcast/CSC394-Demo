@@ -20,8 +20,9 @@ class task_model(models.Model):
     #The following field will contain a UUID casted to an integer as a string
     task_id          = models.CharField(max_length= 100, editable= False)
     # status          = models.CharField(max_length=25, default="To Do")
+    complete        = models.BooleanField(default= False, editable= True)
     # name            = models.CharField(max_length=25)
-    task            = models.CharField(max_length = 30)
+    task            = models.CharField(max_length = 30, editable= True)
     #created_by      = models.CharField(max_length=100)
     #created_at      = models.DateTimeField('Created', auto_now_add=True)
     #updated_by      = models.CharField(max_length=100)

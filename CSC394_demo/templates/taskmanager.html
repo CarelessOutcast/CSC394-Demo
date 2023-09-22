@@ -28,13 +28,16 @@
 		   </thead>
 		   <tbody id="tasks-table">
 			   {% for tasks in task_list %}
+			   {% if tasks.complete == False %}
 			   <tr>
 				<td>{{ tasks.deadline }}</td>
 				<td> {{tasks.task_id }}</td>
 				<td> {{tasks.task}}
-					<a class="btn" action="delete" href="/delete/{{ tasks.task_id }}" method="get">Delete</a>
+					<a class="btn" action="delete" href="/delete/{{ tasks.task_id }}">Delete</a>
+					<a class="btn" action="update" href="/update/{{ tasks.task_id }}">Update</a>
 				</td>
 			</tr>
+				{% endif %}
 				{% endfor %}
 		   </tbody>
 	   </table>

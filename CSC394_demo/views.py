@@ -92,6 +92,7 @@ def add_task(request):
     #The task ID is a UUID casted to an integer and stored as a string to work with parsing through database
     taskToStore = task_model(
         task= task, 
+        complete = False,
         deadline= deadline, 
         task_id= str(int(uuid.uuid4().int))
     )
@@ -100,22 +101,15 @@ def add_task(request):
     return redirect('taskmanager')
     
 #update
-def update_task(request, task_id):
-    task = get_object_or_404(task_model, pk=task_id)
-    update_task_object = request.POST
-    task_model.objects.filter(task_id).update(
-        status          = update_task_object['status'],
-        name            = update_task_object['name'],
-        description     = update_task_object['description'],
-        updated_by      = update_task_object['updated_by'],
-        deadline        = update_task_object['deadline'],
-        time_remaining  = update_task_object['time_remaining']
-    )
+def update_task(request, id):
+    task = get_object_or_404(task_model, task_id= id)
+    task.complete = not task.complete
+    task.save()
     return redirect('taskmanager')
     
 #delete
 def delete_task(request, id):
-    task = task_model.objects.get(task_id = id)
+    task = get_object_or_404(task_model, task_id= id)
     task.delete()
     return redirect('taskmanager')
 
