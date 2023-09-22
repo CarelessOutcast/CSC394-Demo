@@ -13,5 +13,6 @@ urlpatterns = [
         path("taskmanager3", views.taskmanager3, name="taskmanager3"),
         path('add', views.add_task, name='task_add'),
         path('task/<int:pk>/update', views.update_task , name='task_update'),
-        path('task/<int:pk>/delete/', views.delete_task, name='task_delete')
+        #"str:id" is the variable that is passed along from the object on the screen to the database to find the correct object
+        path('delete/<str:id>', views.delete_task, name='delete_task')
 ]

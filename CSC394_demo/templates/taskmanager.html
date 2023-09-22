@@ -32,7 +32,7 @@
 				<td>{{ tasks.deadline }}</td>
 				<td> {{tasks.task_id }}</td>
 				<td> {{tasks.task}}
-					<a href="{% url 'taskmanager' %}" class="btn">Delete</a>
+					<a class="btn" action="delete" href="/delete/{{ tasks.task_id }}" method="get">Delete</a>
 				</td>
 			</tr>
 				{% endfor %}

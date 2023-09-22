@@ -86,23 +86,16 @@ def taskmanager12(request):
 
 @require_http_methods(["POST"])
 def add_task(request):
-   # task = request.POST["task"]
-    #user_first_name = add_task_object['first_name']
-   # user_last_name  = add_task_object['last_name']
-   # deadline        = add_task_object['deadline']
-    #task_model.objects.create(
-      #  user_id         = add_task_object['user_id'],
-      #  task_id         = uuid.uuid4(),
-       # name            = add_task_object['name'],
-      #  description     = add_task_object['description'],
-       # created_by      = user_first_name + '' + user_last_name,
-       # updated_by      = user_first_name + '' + user_last_name,
-       # deadline        = deadline,
-        #time_remaining  = str(round(((deadline - datetime.now()).total_seconds())/3600), 2) + ' Hours'
-   # )
     task = request.POST["task"]
     deadline        = request.POST['deadline']
-    taskToStore = task_model(task = task, deadline = deadline, task_id = uuid.uuid4())
+    #Create a task_model object and assign each of it's values in the constructor
+    #The task ID is a UUID casted to an integer and stored as a string to work with parsing through database
+    taskToStore = task_model(
+        task= task, 
+        deadline= deadline, 
+        task_id= str(int(uuid.uuid4().int))
+    )
+    #Save the newly created task object to the database
     taskToStore.save()
     return redirect('taskmanager')
     
@@ -121,8 +114,8 @@ def update_task(request, task_id):
     return redirect('taskmanager')
     
 #delete
-def delete_task(request, task_id):
-    task = get_object_or_404(task_model, pk=task_id)
+def delete_task(request, id):
+    task = task_model.objects.get(task_id = id)
     task.delete()
     return redirect('taskmanager')
 
